@@ -1,0 +1,13 @@
+{
+  "manifest_version": 3,
+  "name": "IPNI Scraper",
+  "version": "1.0",
+  "description": "Search and scrape IPNI data",
+  "permissions": [],
+  "host_permissions": [
+    "https://ipni.org/*"
+  ],
+  "action": {
+    "default_popup": "popup.html"
+  }
+}

@@ -1,0 +1,26 @@
+{
+  "manifest_version": 3,
+  "name": "IPNI Extension",
+  "version": "1.0",
+  "permissions": [
+    "activeTab"
+  ],
+  "host_permissions": [
+    "https://ipni.org/*"
+  ],
+  "background": {
+    "service_worker": "background.js"
+  },
+  "content_scripts": [
+    {
+      "matches": ["http://68.178.172.222/*"],
+      "js": ["content.js"]
+    }
+  ],
+  "web_accessible_resources": [
+    {
+      "resources": ["icon.png"],
+      "matches": ["<all_urls>"]
+    }
+  ]
+}

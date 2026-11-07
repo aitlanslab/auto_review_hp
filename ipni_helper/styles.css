@@ -1,0 +1,91 @@
+#my-extension-root {
+  all: initial;
+}
+
+/* Floating image button */
+#my-extension-button {
+  position: fixed;
+
+  right: 20px;
+  bottom: 40px;
+  width: 64px;
+  height: 64px;
+  object-fit: contain;
+  cursor: pointer;
+
+  z-index: 999999;
+
+  border-radius: 50%;
+
+  box-shadow: 0 4px 12px rgba(0, 0, 0, 0.2);
+
+  transition: transform 0.2s ease;
+}
+
+#my-extension-button:hover {
+  transform: scale(1.08);
+}
+
+/* Popup */
+#my-extension-popup {
+  position: fixed;
+
+  right: 100px;
+  bottom: 40px;
+
+  width: 320px;
+
+  background: white;
+
+  border-radius: 12px;
+
+  box-shadow: 0 8px 30px rgba(0, 0, 0, 0.2);
+
+  font-family: Arial, sans-serif;
+
+  overflow: hidden;
+
+  z-index: 999999;
+
+  display: none;
+}
+
+/* Show popup */
+#my-extension-popup.visible {
+  display: block;
+}
+
+/* Header */
+#my-extension-header {
+  display: flex;
+
+  justify-content: space-between;
+
+  align-items: center;
+
+  padding: 12px 16px;
+
+  background: #f5f5f5;
+
+  border-bottom: 1px solid #ddd;
+
+  font-size: 14px;
+
+  font-weight: bold;
+}
+
+/* Close button */
+#my-extension-close {
+  border: none;
+
+  background: transparent;
+
+  cursor: pointer;
+
+  font-size: 16px;
+}
+
+/* Popup content */
+#my-extension-content {
+  color: #333;
+}

@@ -1,0 +1,47 @@
+<!DOCTYPE html>
+<html>
+<head>
+  <title>IPNI Scraper</title>
+
+  <style>
+    body {
+      font-family: Arial;
+      width: 300px;
+      padding: 10px;
+    }
+
+    input {
+      width: 100%;
+      padding: 8px;
+      margin-bottom: 10px;
+      box-sizing: border-box;
+    }
+
+    button {
+      width: 100%;
+      padding: 8px;
+      cursor: pointer;
+    }
+  </style>
+</head>
+
+<body>
+
+  <input
+    type="text"
+    id="keyword"
+    placeholder="Enter plant name"
+  />
+
+<button id="scrapeBtn">
+  IPNI Verify
+</button>
+
+<div id="loading" style="display:none; margin-top:10px;">
+  Loading...
+</div>
+
+  <script src="popup.js"></script>
+
+</body>
+</html>
