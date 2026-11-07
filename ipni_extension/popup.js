@@ -226,7 +226,7 @@ function pickBestResult(results, query) {
             json["family"]="No Family"
             json["flag_family"]=true
         }
-        if(json["author_name"].length==0){
+        if(json["author_name"].length==0 && json["author_name"]!=null && json["author_name"]!="null"){
             json["author_name"]=data["firstAuthor"]
             if(!json["scientific_name"].includes(data["firstAuthor"])){
                 json["scientific_name"]=json["scientific_name"]+" "+data["firstAuthor"]
