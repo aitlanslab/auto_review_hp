@@ -250,6 +250,12 @@ chrome.runtime.onMessage.addListener((message, sender, sendResponse) => {
               data["flag_species"]=true
               data["flag_scientific_name"]=true
               data["flag_author_name"]=true
+          }else if(data["genus"]!="No Genus" && data["family"]=="No Family" ){
+              status="Send to Taxonimist"
+              if(DEBUG) alert("Send to taxonomist - Line 255")
+              data["flag_family"]=true
+              data["flag_genus"]=true
+              data["flag_scientific_name"]=true
           }else{
             status="Reject"
             if(!AUTOSUBMIT){
