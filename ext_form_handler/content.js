@@ -116,7 +116,6 @@ chrome.runtime.onMessage.addListener((message, sender, sendResponse) => {
               setValue("flag_country",true);
             }
           })
-
         }
         if(id=="state"){
           state_code=false
@@ -309,7 +308,20 @@ chrome.runtime.onMessage.addListener((message, sender, sendResponse) => {
       });
     }
     
+
+    if(status=="Reject" && data["plant_name"]!=""){
+      status="Send to Taxonimist"
+    }
+
     if(status=="Confirm"){
+        data["flag_family"]=false
+        data["flag_genus"]=false
+        data["flag_species"]=false
+        data["flag_scientific_name"]=false
+        data["flag_author_name"]=false
+        Object.entries(data).forEach(([id, value]) => {
+          setValue(id,value)
+        });
       setTimeout(() => {
         const submitBtn = document.getElementById("acceptBtn");
         if (!submitBtn) {
@@ -339,6 +351,7 @@ chrome.runtime.onMessage.addListener((message, sender, sendResponse) => {
       }, 300);
     }else if(status=="Send to Taxonimist"){
       setTimeout(() => {
+
         const submitBtn = document.getElementById("flagToTaxonomistBtn");
         if (!submitBtn) {
           alert("Button does not exists")
