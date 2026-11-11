@@ -14,8 +14,10 @@ from model import model
 
 def load_temp_chat():
     def swicth_to_temp_chat():
-        attempts = 2
+        attempts = 5
+        print("Switching to temp chat")
         for att in range(attempts):
+            print("Attempting to find temp chat")
             path="images/gemini/temp_chat_active_hp.png" if model=="HP" else "images/gemini/temp_chat_active.png"
             current = find(path, confidence=0.9)
             if current:
@@ -29,6 +31,7 @@ def load_temp_chat():
             path="images/gemini/top_temp_chat_hp.png" if model=="HP" else "images/gemini/top_temp_chat.png"
             top_visibility = find(path, confidence=0.8)
             if top_visibility:
+                print("found top_temp_chat_hp.png")
                 path="images/gemini/top_temp_chat_active_hp.png" if model=="HP" else "images/gemini/top_temp_chat_active.png"
                 curr_mode = find(path, confidence=1)
                 if curr_mode:
@@ -41,6 +44,7 @@ def load_temp_chat():
                     time.sleep(1)
                     continue
             else:
+                print("Did not found top_temp_chat_hp.png")
                 # check if new chat available on top
                 path="images/gemini/top_new_chat_hp.png" if model=="HP" else "images/gemini/top_new_chat.png"
                 new_chat = find(path)
@@ -89,6 +93,7 @@ def copy_image():
         print("No Image")
         return False
 
+    
     copy_ss = "images/bsi/copy_image.png"
     if model=="HP":
         copy_ss = "images/bsi/copy_image_hp.png"
@@ -98,6 +103,7 @@ def copy_image():
         position = (190, 423)
 
         pilot.moveTo(position, duration=0.5)
+        
         pilot.rightClick()
 
         # Success case
@@ -115,6 +121,7 @@ def copy_image():
             time.sleep(1)
 
         time.sleep(0.5)
+        pilot.press("enter", interval=0.1)
 
 
 
@@ -197,7 +204,7 @@ def handle_response():
     possiblilities=["images/chatgpt/ok.png","images/gemini/redo.png"]
     if model=="HP":
         possiblilities=["images/chatgpt/ok_hp.png","images/gemini/redo_hp.png"]
-    res=wait_for_first_image(image_paths=possiblilities,max_time_to_wait=20)
+    res=wait_for_first_image(image_paths=possiblilities,max_time_to_wait=30)
     if res==0:
         print("Found OK")
         path="images/chatgpt/ok_hp.png" if model=="HP" else "images/chatgpt/ok.png"
