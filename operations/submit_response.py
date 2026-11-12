@@ -42,9 +42,17 @@ def handle_extension():
     path="images/bsi/ok_hp.png"
     if is_element_present(path,duration=5):
         print("Found an alert")
+
+        # Check if completed
+        if is_element_present(path="images/bsi/completed_hp.png",duration=1):
+            print("Completed")
+            pilot.press("enter")
+            time.sleep(0.5)
+            return True
+
         # Check if IPNI verification required
         path="images/bsi/validate_hp.png" if model=="HP" else "images/bsi/validate.png"
-        if is_element_present(path):
+        if is_element_present(path=path,duration=1):
             print("IPNI verification required")
             pilot.press("enter")
             print("Enter pressed")
