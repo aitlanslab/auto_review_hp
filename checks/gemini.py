@@ -206,7 +206,7 @@ def handle_response():
     possiblilities=["images/chatgpt/ok.png","images/gemini/redo.png"]
     if model=="HP":
         possiblilities=["images/chatgpt/ok_hp.png","images/gemini/redo_hp.png"]
-    res=wait_for_first_image(image_paths=possiblilities,max_time_to_wait=30)
+    res=wait_for_first_image(image_paths=possiblilities,max_time_to_wait=35)
     if res==0:
         print("Found OK")
         path="images/chatgpt/ok_hp.png" if model=="HP" else "images/chatgpt/ok.png"
