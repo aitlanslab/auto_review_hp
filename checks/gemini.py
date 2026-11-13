@@ -130,7 +130,7 @@ def paste_image():
     if model=="HP":
         prompt_ss = "images/gemini/attachment_input_hp.png"
     if find(prompt_ss):
-        click_element(prompt_ss, confidence=0.8)
+        #click_element(prompt_ss, confidence=0.8)
         pilot.moveTo(1214,618,duration=0.5)
         pilot.click()
         time.sleep(0.5)
