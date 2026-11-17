@@ -91,7 +91,7 @@ def handle_extension():
                 #load_and_click("images/bsi/extension_save.png",confidence=0.8)
                 time.sleep(0.5)
 
-                possiblilities=["images/bsi/completed.png","images/bsi/reject.png","images/bsi/flag.png"]
+                possiblilities=["images/bsi/annotated_hp.png","images/bsi/reject.png","images/bsi/flag.png"]
                 if model=="HP":
                     possiblilities=["images/bsi/completed_hp.png","images/bsi/reject_hp.png","images/bsi/flag_hp.png"]
                 res=wait_for_first_image(image_paths=possiblilities, max_time_to_wait=2)
