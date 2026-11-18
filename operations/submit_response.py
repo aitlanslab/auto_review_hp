@@ -2,7 +2,7 @@ import pyautogui as pilot
 import time
 from credentials import prompt
 from utils.executor import load_and_click, is_element_present, wait_for_first_image
-from utils.operator import click_element
+from utils.operator import click_element, double_click_element
 import worker
 from model import model
 def handle_extension():
@@ -20,7 +20,7 @@ def handle_extension():
     pilot.hotkey("ctrl","v")
     time.sleep(0.5)
     path="images/bsi/extension_fill_hp.png" if model=="HP" else "images/bsi/extension_fill.png"
-    click_element(path,confidence=0.8)
+    double_click_element(path,confidence=0.8)
     time.sleep(0.2)
     """
     path="images/bsi/extension_save_hp.png" if model=="HP" else "images/bsi/extension_save.png"
@@ -87,14 +87,15 @@ def handle_extension():
                 pilot.hotkey("ctrl","v")
                 time.sleep(0.5)
                 path="images/bsi/extension_fill_hp.png" if model=="HP" else "images/bsi/extension_fill.png"
-                load_and_click(path,confidence=0.8)
+                #load_and_click(path,confidence=0.8)
+                double_click_element(path,confidence=0.8)
                 #load_and_click("images/bsi/extension_save.png",confidence=0.8)
                 time.sleep(0.5)
 
                 possiblilities=["images/bsi/annotated_hp.png","images/bsi/reject.png","images/bsi/flag.png"]
                 if model=="HP":
                     possiblilities=["images/bsi/completed_hp.png","images/bsi/reject_hp.png","images/bsi/flag_hp.png"]
-                res=wait_for_first_image(image_paths=possiblilities, max_time_to_wait=2)
+                res=wait_for_first_image(image_paths=possiblilities, max_time_to_wait=5)
                 if res==0 or res==1 or res==2:
                     time.sleep(0.5)
                     print("Received Option")
